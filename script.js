@@ -14,9 +14,24 @@
 // 100km, 70 anni => prezzo corretto: €12.60
 
 // chiedo numero di kilometri
-const distance = parseInt(prompt("inserisci i kilometri che vuoi percorrere"));
-console.log("numero kilometri", distance);
+const km = parseInt(prompt("inserisci i kilometri che vuoi percorrere"));
+console.log("numero kilometri", km);
 
 // chiedo età
 const anni = parseInt(prompt("inserisci quanti anni hai"));
 console.log("anni utente", anni);
+
+// prezzo biglietto
+let prezzoBiglietto = (0.21 * km)
+
+// condizione per lo sconto
+if (anni < 18) {
+    prezzoBiglietto = prezzoBiglietto - ((prezzoBiglietto * 20 / 100));
+} else if (anni >= 65) {
+    prezzoBiglietto = prezzoBiglietto - ((prezzoBiglietto * 40 / 100));
+} else {
+    prezzoBiglietto = (0.21 * km);
+}
+
+// Prezzo
+console.log(prezzoBiglietto.toFixed(2));
